@@ -1,0 +1,24 @@
+name: Python checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Compile Python
+        run: python -m compileall -q custom_components
+      - name: Validate JSON
+        run: python -c 'import json,pathlib; [json.loads(f.read_text(encoding="utf-8")) for f in pathlib.Path("custom_components").rglob("*.json")]; json.loads(pathlib.Path("hacs.json").read_text(encoding="utf-8"))'
+      - name: Run isolated unit tests
+        run: python -m unittest discover -s tests -v

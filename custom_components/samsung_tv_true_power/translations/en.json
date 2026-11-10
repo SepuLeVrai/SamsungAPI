@@ -1,0 +1,47 @@
+{
+  "title": "Samsung TV Local Power",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Samsung TV",
+        "description": "Read PowerState over the TV's local REST API (TCP 8001). No Samsung account or remote control pairing is required.",
+        "data": {
+          "host": "TV IPv4 address",
+          "name": "TV name"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Enter a valid IPv4 address (without port or URL)",
+      "invalid_name": "Enter a TV name"
+    },
+    "abort": {
+      "already_configured": "This television has already been configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Power detection settings",
+        "description": "Settings apply only to this TV. Network reachability alone never indicates that the screen is on.",
+        "data": {
+          "on_confirm_seconds": "Seconds of continuous ON before confirming",
+          "lost_connection_off_seconds": "Seconds unreachable before assuming OFF",
+          "poll_interval_seconds": "REST polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "screen_on": {
+        "name": "Screen on"
+      }
+    },
+    "sensor": {
+      "api_status": {
+        "name": "REST API power state"
+      }
+    }
+  }
+}

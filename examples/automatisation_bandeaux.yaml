@@ -1,0 +1,102 @@
+# Exemple à coller dans l'éditeur YAML d'une automatisation Home Assistant.
+# IMPORTANT : les deux identifiants binary_sensor sont des EXEMPLES.
+# Remplace-les par les ID exacts visibles dans Appareils et services.
+# ON est déjà filtré pendant 15 s par l'intégration SamsungAPI.
+alias: TV - Bandeaux LED via Samsung TV Local PowerState
+description: >
+  Bandeaux LED selon l'état réel des TV Samsung et le soleil.
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.tv_piece_principale_ecran_allume
+    to: "on"
+    id: salon_on
+  - trigger: state
+    entity_id: binary_sensor.tv_piece_principale_ecran_allume
+    to: "off"
+    for:
+      seconds: 10
+    id: salon_off
+  - trigger: state
+    entity_id: binary_sensor.tv_seconde pièce_ecran_allume
+    to: "on"
+    id: seconde pièce_on
+  - trigger: state
+    entity_id: binary_sensor.tv_seconde pièce_ecran_allume
+    to: "off"
+    for:
+      seconds: 10
+    id: seconde pièce_off
+  - trigger: sun
+    event: sunset
+    id: coucher_soleil
+  - trigger: sun
+    event: sunrise
+    id: lever_soleil
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: salon_on
+          - condition: state
+            entity_id: sun.sun
+            state: below_horizon
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.tv_piece_principale
+      - conditions:
+          - condition: trigger
+            id: salon_off
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: light.tv_piece_principale
+      - conditions:
+          - condition: trigger
+            id: seconde pièce_on
+          - condition: state
+            entity_id: sun.sun
+            state: below_horizon
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.tv_seconde_piece
+      - conditions:
+          - condition: trigger
+            id: seconde pièce_off
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: light.tv_seconde_piece
+      - conditions:
+          - condition: trigger
+            id: coucher_soleil
+        sequence:
+          - if:
+              - condition: state
+                entity_id: binary_sensor.tv_piece_principale_ecran_allume
+                state: "on"
+            then:
+              - action: light.turn_on
+                target:
+                  entity_id: light.tv_piece_principale
+          - if:
+              - condition: state
+                entity_id: binary_sensor.tv_seconde pièce_ecran_allume
+                state: "on"
+            then:
+              - action: light.turn_on
+                target:
+                  entity_id: light.tv_seconde_piece
+      - conditions:
+          - condition: trigger
+            id: lever_soleil
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id:
+                - light.tv_piece_principale
+                - light.tv_seconde_piece
+mode: parallel
+max: 4

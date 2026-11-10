@@ -1,0 +1,47 @@
+{
+  "title": "Samsung TV Local Power",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Ajouter une TV Samsung",
+        "description": "Lecture de PowerState via l'API REST locale (TCP 8001). Aucun compte Samsung ni appairage télécommande nécessaire.",
+        "data": {
+          "host": "Adresse IPv4 de la TV",
+          "name": "Nom de la TV"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Saisissez une adresse IPv4 valide (sans port ni URL)",
+      "invalid_name": "Saisissez un nom pour la TV"
+    },
+    "abort": {
+      "already_configured": "Ce téléviseur est déjà configuré"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Paramètres de détection d'allumage",
+        "description": "Réglages propres à cette TV. Une réponse au ping ne signifie pas que l'écran est allumé.",
+        "data": {
+          "on_confirm_seconds": "Secondes de ON continu avant confirmation",
+          "lost_connection_off_seconds": "Secondes sans réponse avant de supposer OFF",
+          "poll_interval_seconds": "Intervalle de lecture REST (secondes)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "screen_on": {
+        "name": "Écran allumé"
+      }
+    },
+    "sensor": {
+      "api_status": {
+        "name": "État alimentation API REST"
+      }
+    }
+  }
+}
