@@ -23,7 +23,7 @@ Pas de SmartThings, pas de WebSocket, pas d'appairage ou de popup sur la TV. Lec
 
 ### Compatibilité
 
-La compatibilité dépend du firmware. Vérifiez si votre TV expose une valeur exploitable dans device.PowerState via le port TCP 8001, à la fois en marche et en veille. Aucune liste de matériel privé ni de résultats d'installation spécifiques n'est publiée.
+La compatibilité dépend du modèle et du firmware. Vérifiez si votre TV expose une valeur exploitable dans device.PowerState via le port TCP 8001, à la fois en marche et en veille.
 
 Les adresses 192.0.2.10 et 192.0.2.11 ci-dessous sont des adresses fictives réservées à la documentation (RFC 5737) ; remplacez-les par celles de vos appareils.
 
