@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - 'custom_components/samsung_tv_true_power/manifest.json'
+      - '.github/workflows/release.yml'
+      - 'tests/**'
+      - 'scripts/check_public_release.py'
   workflow_dispatch:
 
 permissions:

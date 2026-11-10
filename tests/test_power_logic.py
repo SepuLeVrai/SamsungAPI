@@ -24,7 +24,7 @@ class TestSamsungPowerLogic(unittest.TestCase):
         payload = {"device": {"modelName": "Samsung Tizen Model A", "PowerState": "standby"}}
         self.assertEqual(logic.parse_power_state(payload), "standby")
 
-    def test_seconde pièce_on_and_standby(self):
+    def test_second_tv_on_and_standby(self):
         model = "Samsung Tizen Model B"
         for state in ("on", "standby"):
             self.assertEqual(
