@@ -90,7 +90,7 @@ Si l'API ne renvoie pas standby dans la situation attendue, ne pas modifier l'au
 
 Ouvrir [l'exemple YAML](../examples/automatisation_bandeaux.yaml), puis remplacer :
 - **binary_sensor.tv_piece_principale_ecran_allume** par le vrai ID du pièce principale ;
-- **binary_sensor.tv_seconde pièce_ecran_allume** par le vrai ID de la seconde pièce.
+- **binary_sensor.tv_seconde_piece_ecran_allume** par le vrai ID de la seconde pièce.
 
 Conserver les entités de lumière **light.tv_piece_principale** et **light.tv_seconde_piece**, déjà présentes dans l'automatisation initiale.
 
