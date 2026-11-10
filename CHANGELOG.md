@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.2 — 2026-11-10
+
+- Icône TV/alimentation générique au format PNG 256×256, intégrée à Home Assistant sous `brand/icon.png`.
+- Ajout d'une source vectorielle SVG pour l'icône.
+- Versioning sémantique, release GitHub automatisée et archive ZIP d'installation.
+- Documentation pour publier les futures versions et contrôle des exemples publics.
+- Version expérimentale : validation sur Home Assistant encore nécessaire.
+
 ## 0.2.1 — 2026-11-10
 
 - Generalized public documentation, examples, tests and metadata.

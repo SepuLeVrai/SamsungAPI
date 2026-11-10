@@ -1,10 +1,12 @@
 # Samsung TV Local Power
 
+<img src="custom_components/samsung_tv_true_power/brand/icon.png" alt="Icône TV et alimentation" width="104" height="104" />
+
 Intégration **Home Assistant personnalisée et locale**, destinée à distinguer l'écran **réellement allumé** d'un téléviseur Samsung Tizen de son **interface réseau active en veille**.
 
 > **Usage principal :** supprimer les allumages parasites des bandeaux LED lorsque les TV Samsung se réveillent brièvement sur Ethernet. Cette intégration ne remplace pas les fonctions de télécommande de l'intégration Samsung officielle.
 
-**Version 0.2.0 — prototype à valider sur une installation réelle de Home Assistant.**
+**Version 0.2.2 — version expérimentale à valider sur une installation réelle de Home Assistant.**
 
 ## Comment ça fonctionne
 
@@ -26,6 +28,14 @@ Pas de SmartThings, pas de WebSocket, pas d'appairage ou de popup sur la TV. Lec
 La compatibilité dépend du modèle et du firmware. Vérifiez si votre TV expose une valeur exploitable dans device.PowerState via le port TCP 8001, à la fois en marche et en veille.
 
 Les adresses 192.0.2.10 et 192.0.2.11 ci-dessous sont des adresses fictives réservées à la documentation (RFC 5737) ; remplacez-les par celles de vos appareils.
+
+## Versions et téléchargements
+
+La [dernière release GitHub](https://github.com/SepuLeVrai/SamsungAPI/releases/latest) fournit un numéro de version, des notes de mise à jour et une archive ZIP d'installation.
+
+Le projet suit le versioning sémantique `MAJOR.MINOR.PATCH`. La version de `manifest.json` est identique à celle du tag GitHub, précédée de `v`. Pour les développeurs, voir [le guide de publication](docs/RELEASING.md).
+
+Les versions de release proviennent exclusivement de commits publics contenant des exemples fictifs, sans détails matériels ou réseau spécifiques.
 
 ## Installation depuis GitHub
 

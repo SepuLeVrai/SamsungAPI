@@ -1,7 +1,7 @@
 {
   "domain": "samsung_tv_true_power",
   "name": "Samsung TV Local Power",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "documentation": "https://github.com/SepuLeVrai/SamsungAPI#readme",
   "issue_tracker": "https://github.com/SepuLeVrai/SamsungAPI/issues",
   "codeowners": [],
